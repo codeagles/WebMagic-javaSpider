@@ -42,8 +42,9 @@ public class SinaBlogProcessor implements PageProcessor {
 	public void process(Page page) {
 		//列表页
 		if (page.getUrl().regex(LISURLS).match()) {
-			page.addTargetRequests(page.getHtml().xpath("//div[@class=\"articleList\"]").links().regex(URLPOST).all());
-			page.addTargetRequests(page.getHtml().links().regex(LISURLS).all());
+			page.addTargetRequests(page.getHtml().xpath("//div[@class=\"articleList\"]").links()
+					.regex(URLPOST).all());
+				
 		} else {//文章页
 			size++;//计数器
 			page.putField("title", page.getHtml().xpath("//div[@class=\"articalTitle\"/h2]"));
