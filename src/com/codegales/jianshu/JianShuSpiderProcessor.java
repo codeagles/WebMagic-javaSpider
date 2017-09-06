@@ -6,7 +6,10 @@ package com.codegales.jianshu;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.codegales.bean.JianShuBean;
@@ -15,6 +18,7 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
+import us.codecraft.webmagic.selector.Html;
 
 /**
  * @author hcn
@@ -45,13 +49,28 @@ public class JianShuSpiderProcessor implements PageProcessor{
 	 */
 	@Override
 	public void process(Page page) {
+		System.getProperties().setProperty("webdriver.chrome.driver", "/Users/codeagles/ProgramTools/chromedriver2");
 		WebDriver driver = new ChromeDriver();
+		driver.get("http://www.jianshu.com/u/bbfef3982813");
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		
+		try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+		WebElement webElement = driver.findElement(By.xpath("/html"));
+		String str = webElement.getAttribute("outerHTML");
+        System.out.println(str);
+
+        Html html = new Html(str);
 		//列表页
 		if(page.getUrl().regex(Lists_URL).match()){
 			//选中所有区域
-			List<String> lists = page.getHtml().xpath("//div[@class =\"content\"]//a[@class=\"title\"]")
+			List<String> lists = html.xpath("//div[@class =\"content\"]//a[@class=\"title\"]")
 					.links()
-					.regex("http://www\\.jianshu\\.com/p/.*")
+					.regex("/p/.*")
+					.replace("/p/", "http://www.jianshu.com/p/")
 					.all();
 			page.addTargetRequests(lists);
 		}else{//文章页
@@ -61,6 +80,7 @@ public class JianShuSpiderProcessor implements PageProcessor{
 			System.out.println(bean.getTitle());
 			System.out.println(total);
 		}
+		driver.close();
 	}
 	
 	public static void main(String[] args) {
