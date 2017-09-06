@@ -6,6 +6,9 @@ package com.codegales.jianshu;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import com.codegales.bean.JianShuBean;
 
 import us.codecraft.webmagic.Page;
@@ -42,6 +45,7 @@ public class JianShuSpiderProcessor implements PageProcessor{
 	 */
 	@Override
 	public void process(Page page) {
+		WebDriver driver = new ChromeDriver();
 		//列表页
 		if(page.getUrl().regex(Lists_URL).match()){
 			//选中所有区域
@@ -62,6 +66,9 @@ public class JianShuSpiderProcessor implements PageProcessor{
 	public static void main(String[] args) {
 		Spider.create(new JianShuSpiderProcessor()).addUrl("http://www.jianshu.com/u/bbfef3982813")
 		.run();
+		
+		System.out.println("爬取结束");
+		
 	}
 
 
