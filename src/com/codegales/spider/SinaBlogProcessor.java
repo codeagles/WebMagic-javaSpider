@@ -49,7 +49,7 @@ public class SinaBlogProcessor implements PageProcessor {
 			page.putField("title", page.getHtml().xpath("//div[@class=\"articalTitle\"/h2]"));
 			page.putField("articalContent", page.getHtml().xpath("//div[@articalContent=\"articalContent\"]"));
 			page.putField("date",
-					page.getHtml().xpath("//span[@class='time SG_txtc']").regex("\\((.*)\\)"));
+			page.getHtml().xpath("//span[@class='time SG_txtc']").regex("\\((.*)\\)"));
 		}
 		
 	}

@@ -24,7 +24,7 @@ import us.codecraft.webmagic.selector.Html;
  * @author hcn 功能:爬去简书文章并存储到Mysql数据中 数据来源：个人简书地址
  *         http://www.jianshu.com/u/bbfef3982813 由于简书没有分页，所以列表地址就是博客地址不用正则匹配
  */
-public class JianShuSpiderProcessor implements PageProcessor {
+public class JianShuSeleniumSpiderProcessor implements PageProcessor {
 
 	// 抓取网站的相关配置，包括：编码、抓取间隔、重试次数等
 	private Site site = Site.me().setSleepTime(3000).setRetryTimes(3);
@@ -80,7 +80,7 @@ public class JianShuSpiderProcessor implements PageProcessor {
 	}
 
 	public static void main(String[] args) {
-		Spider.create(new JianShuSpiderProcessor())
+		Spider.create(new JianShuSeleniumSpiderProcessor())
 						.addUrl(User_Url)
 						.thread(3)
 						.run();
