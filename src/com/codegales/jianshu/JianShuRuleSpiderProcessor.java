@@ -16,8 +16,9 @@ public class JianShuRuleSpiderProcessor implements PageProcessor {
 	private Site site = Site.me().setSleepTime(3000).setRetryTimes(3);
 	// 文章列表URL
 	private static String ListsURL = "http://www.jianshu.com/u/bbfef3982813?order_by=shared_at&page=";
-	private static String ListsMatchURL = "http://www\\.jianshu\\.com/u/bbfef3982813\\?order_by=shared_at\\&page=\\d+";
 	// 文章详情URL
+	private static String ListsMatchURL = "http://www\\.jianshu\\.com/u/bbfef3982813\\?order_by=shared_at\\&page=\\d+";
+	
 	// 统计总数
 	private static int total = 0;
 	private static boolean flag = true;

@@ -44,20 +44,26 @@ public class JianShuSeleniumSpiderProcessor implements PageProcessor {
 
 	/**
 	 * 爬虫核心抽取逻辑
+	 * 集成Selenium
 	 */
 	@Override
 	public void process(Page page) {
+		//设置Selenium配置 参数1：驱动名字 参数2：本地安装位置
 		System.getProperties().setProperty("webdriver.chrome.driver", "/Users/codeagles/ProgramTools/chromedriver2");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver();//生成Chrome驱动
+		//注册驱动
 		driver.get(User_Url);
+		
 		for (int i = 0; i < 3; i++) {
+			//模拟拉取页面 上述循环是拉取三次
 			((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(1000);//等待页面加载 时间
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+		//获取页面
 		WebElement webElement = driver.findElement(By.xpath("/html"));
 		String str = webElement.getAttribute("outerHTML");
 		Html html = new Html(str);

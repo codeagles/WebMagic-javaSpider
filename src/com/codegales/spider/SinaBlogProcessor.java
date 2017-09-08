@@ -34,7 +34,6 @@ public class SinaBlogProcessor implements PageProcessor {
 
 	@Override
 	public Site getSite() {
-
 		return site;
 	}
 
