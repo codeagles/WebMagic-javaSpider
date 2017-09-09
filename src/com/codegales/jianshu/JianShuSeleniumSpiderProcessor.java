@@ -87,9 +87,9 @@ public class JianShuSeleniumSpiderProcessor implements PageProcessor {
 
 	public static void main(String[] args) {
 		Spider.create(new JianShuSeleniumSpiderProcessor())
-						.addUrl(User_Url)
-						.thread(3)
-						.run();
+						.addUrl(User_Url)//添加URL
+						.thread(3)//开启线程去爬取
+						.run();//启动
 
 		System.out.println("爬取结束,共爬取文章数："+ total);
 
