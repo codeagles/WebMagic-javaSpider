@@ -27,7 +27,7 @@ public class JianShuRuleSpiderProcessor implements PageProcessor {
 	public static void main(String[] args) {
 		for(int i = 1;i<100;i++ ){
 			if(flag){
-				Spider.create(new JianShuRuleSpiderProcessor()).addUrl(ListsURL+i).run();
+				Spider.create(new JianShuRuleSpiderProcessor()).addUrl(ListsURL+i).thread(23).run();
 			}
 			
 		}
