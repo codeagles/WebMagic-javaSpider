@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.codegales.bean;
+package com.codeagles.bean;
 
 import java.sql.Date;
 

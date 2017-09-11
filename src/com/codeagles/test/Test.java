@@ -1,4 +1,4 @@
-package com.codegales.test;
+package com.codeagles.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

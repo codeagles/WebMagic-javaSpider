@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.codegales.spider;
+package com.codeagles.spider;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -25,12 +25,10 @@ public class SinaBlogProcessor implements PageProcessor {
 	
 	private static int size = 0;
 	
-	public static void main(String[] args) {
-		  Spider.create(new SinaBlogProcessor()).addUrl("http://blog.sina.com.cn/s/articlelist_1487828712_0_1.html")
-		  .addPipeline(new ConsolePipeline())
-          .run();
-		  System.out.println(size);
-	}
+//	public static void main(String[] args) {
+//		  
+//		  System.out.println(size);
+//	}
 
 	@Override
 	public Site getSite() {
@@ -52,5 +50,5 @@ public class SinaBlogProcessor implements PageProcessor {
 		}
 		
 	}
-
+	
 }

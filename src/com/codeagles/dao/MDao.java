@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.codegales.bean.JianShuBean;
+import com.codeagles.bean.JianShuBean;
 
 /**
  * @author hcn

@@ -1,9 +1,9 @@
-package com.codegales.jianshu;
+package com.codeagles.jianshu;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.codegales.bean.JianShuBean;
+import com.codeagles.bean.JianShuBean;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
