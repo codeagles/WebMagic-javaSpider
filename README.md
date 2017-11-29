@@ -6,4 +6,6 @@
 
 2.插入mysql数据库
 
+3.采用Quartz定时器
+
 参考地址：http://webmagic.io/docs/zh/
